@@ -21,8 +21,9 @@
             type="search"
             placeholder="Search"
             aria-label="Search"
+            id="citySearch-inp"
           />
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="btn-citySearch">
             Search
           </button>
         </form>
@@ -40,40 +41,35 @@
             <li data-target="#news-caption" data-slide-to="3"></li>
             <li data-target="#news-caption" data-slide-to="4"></li>
           </ol>
-          <div class="carousel-inner">
-            <div class="carousel-item active" id="newsItems-1">
-              <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg" class="d-block w-100" alt="...">
+          <div class="carousel-inner" id="carousel-inner">
+            <div class="carousel-item active" id="newsItems">
+              <img id="news-image" src="./assets/images/localNews.jpg" class="d-block w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
-                <h5>First slide label</h5>
-                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                <h5></h5>
               </div>
             </div>
-            <div class="carousel-item" id="newsItems-2">
-              <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(63).jpg" class="d-block w-100" alt="...">
+            <div class="carousel-item" id="newsItems">
+              <img id="news-image" src="./assets/images/localNews.jpg" class="d-block w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
-                <h5>Second slide label</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h5></h5>
               </div>
             </div>
-            <div class="carousel-item" id="newsItems-3">
-              <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(69).jpg..." class="d-block w-100" alt="...">
+            <div class="carousel-item" id="newsItems">
+              <img id="news-image" src="./assets/images/localNews.jpg" class="d-block w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
-                <h5>Third slide label</h5>
-                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                <h5></h5>
               </div>
             </div>
-            <div class="carousel-item" id="newsItems-4">
-              <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(60).jpg" class="d-block w-100" alt="...">
+            <div class="carousel-item" id="newsItems">
+              <img id="news-image" src="./assets/images/localNews.jpg" class="d-block w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
-                <h5>Fourth slide label</h5>
-                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                <h5></h5>
               </div>
             </div>
-            <div class="carousel-item" id="newsItems-5"> 
-              <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(61).jpg" class="d-block w-100" alt="...">
+            <div class="carousel-item" id="newsItems"> 
+              <img id="news-image" src="./assets/images/localNews.jpg" class="d-block w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
-                <h5>Fifth slide label</h5>
-                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                <h5></h5>
               </div>
             </div>
           </div>
@@ -93,14 +89,14 @@
           <div class="col-sm infocard-left">
             <div class="jumbotron bg-secondary">
                 <h1 class="display-3" >TODAY</h1>
-            <h2 id="currentCity" ></h2>
-            <h3 class="display-6" id="current-date">xxxxxx</h3>
+            <h2 id="current-city" ></h2>
+            <h3 class="display-6" id="current-date"></h3>
             <hr class="m-4" />
             <img id="img" class="img-thumbnail" style="background-color: #b0b0b0;"/>
-            <p class="lead" id="temperature">xxxxxx</p>
-            <p class="lead" id="humidity">xxxxxx</p>
-            <p class="lead" id="windspeed">xxxxxx</p>
-            <p class="lead" id="uv">xxxxxx</p>
+            <p class="lead" id="temperature"></p>
+            <p class="lead" id="humidity"></p>
+            <p class="lead" id="windspeed"></p>
+            <p class="lead" id="uv"></p>
               </div>
           </div>
           <!-- airport-jumbotron -->
@@ -108,7 +104,6 @@
             <div class="jumbotron bg-secondary">
                 <h1 class="display-3" >Airport</h1>
             <h2 id="currentCity" ></h2>
-            <h3 class="display-6" id="current-date">Searched City</h3>
             <hr class="m-4" />
             <img id="img" class="img-thumbnail" style="background-color: #b0b0b0;"/>
             <p class="lead" id="airport-1">xxxxxx</p>
