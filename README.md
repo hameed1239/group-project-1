@@ -14,7 +14,7 @@ A web application that provides weather condition, closest airports and interest
 
 ## Website
 https://hameed1239.github.io/group-project-1/
-![Website Screenshot](.\assets\images\Capture.PNG)
+![Website Screenshot](.\assets\images\Capture.PNG)assets\Capture.PNG
 
 ## Prerequisites
 * Obtain an API key from the 3 listed APIs listed above. 
