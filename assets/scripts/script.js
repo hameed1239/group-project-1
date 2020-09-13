@@ -1,9 +1,18 @@
-var destination;
+var destination = "CLEVELAND";
+var destinationCoord = `41.4995,-81.69541`
 var image;
 //var i;
 var imgSrcArray = [];
 var firstResponse;
 var data;
+var currentUVIndex = document.querySelector("#uv");
+var currentIcon = document.querySelector("#weather-icon");
+var currentTemp = document.querySelector("#temp");
+var currentHumidity = document.querySelector("#humidity");
+var currentWindSpeed = document.querySelector("#windspeed");
+var weatherAPIKEY = '7b0197c226ae249e6f7f72a52e0e15b5';
+var aerisAPIKEY = 'CMvFQF9jag1d3EMFHicMv';
+var aerisSecretKey = 'BQdV0ALmk1uCwHhrboePox3rLJ6dwF9TjP8pzV9n';
 
 //var xID=[];
 // get input and store in var city
@@ -11,14 +20,16 @@ $(".btn").on("click", function () {
     event.preventDefault();
     destination = $(".form-control").val();
     console.log(destination);
+    destination = destination.toUpperCase();
     destination = destination.trim();
     changeCityName(destination);
     getGeocode(destination);
+    fetchAirports();
 
 });
 
 function changeCityName(destination) {
-    $("#city").val = destination; 
+    $("#city").html(`${destination}'s LOCAL GUIDE`)
 }
 //fetch geocode and poi
 function getGeocode(destination) {
@@ -38,9 +49,10 @@ function getGeocode(destination) {
                     console.log("Not Found");
                 }
                 else {
-                    //console.log(response.json());
+                    console.log(response);
                     //const places = getPlaces(response);
                     getPlacesXID(response);
+                    fetchAirports(`${response.lat},${response.lon}`);
                 }
             })
     }
@@ -114,35 +126,62 @@ function getPlaceInfo(xIDs) {
 
    
 }
-function searchQuery() {
+function weatherFetch() {
 
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityValue}&units=imperial&appid=${APIKEY}`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${destination}&units=imperial&appid=${weatherAPIKEY}`)
         .then(function (response) {
             return response.json();
         })
         .then(function (response) {
-            currentDayWeather(response);
+            displayWeather(response);
             var lat = response.coord.lat;
             var lon = response.coord.lon;
-            fetch(`https://api.openweathermap.org/data/2.5/uvi?appid=${APIKEY}&lat=${lat}&lon=${lon}`)
+            fetch(`https://api.openweathermap.org/data/2.5/uvi?appid=${weatherAPIKEY}&lat=${lat}&lon=${lon}`)
                 .then(function (response) {
                     return response.json();
                 }).then(function (response) {
                     addUVIndex(response);
                 })
         });
-    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityValue}&units=imperial&appid=${APIKEY}`)
+    // fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityValue}&units=imperial&appid=${APIKEY}`)
+    //     .then(function (response) {
+    //         return response.json();
+    //     })
+    //     .then(function (response) {
+    //         displayForcast(response);
+    //     });
+}
+function displayWeather(response) {
+    // var formatedDate = currentDate.format("M/D/YYYY");
+    // currentDay.innerHTML = `${cityValue} ${formatedDate}`;
+    var iconSrc = `https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png`;
+    currentIcon.setAttribute("src", iconSrc);
+    currentTemp.innerHTML = `${response.main.temp} &#8457`;
+    currentHumidity.innerHTML = `${response.main.humidity}%`;
+    currentWindSpeed.innerHTML = `${response.wind.speed} MPH`
+
+}
+function addUVIndex(response) {
+    currentUVIndex.innerHTML = `${response.value}`;
+}
+
+function fetchAirports(coord) {
+    fetch(`https://api.aerisapi.com/places/airports/closest/?client_id=${aerisAPIKEY}&client_secret=${aerisSecretKey}&p=${coord}&limit=1&radius=20miles&filter=largeairport&`)
         .then(function (response) {
             return response.json();
         })
         .then(function (response) {
-            displayForcast(response);
-        });
+            console.log(response);
+            $("#airport-code").html((response.response[0].profile.iata).toUpperCase());
+            $("#airport").html(response.response[0].place.name);
+
+    })
 }
 
 function onLoad() {
-    changeCityName("Cleveland");
-    getGeocode("Cleveland");
+    changeCityName(destination);
+    getGeocode(destination);
+    weatherFetch();
 }
 
 onLoad();
