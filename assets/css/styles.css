@@ -1,0 +1,16 @@
+.carousel-item img{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    /* max-height: 350px; */
+    /* min-width: 300px;
+    max-width: inherit; */
+    text-align: center;
+}
+.carousel-item p{
+    font-size: 10px;
+}
+
+.carousel-item{
+    height: 600px;
+    background-color:#6e6c6cf3;
+}
