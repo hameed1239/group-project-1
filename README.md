@@ -1,6 +1,6 @@
-# group-project-1
+# Local Guide
 ## Purpose
-A web application that provides weather condition, closest airports and interesting places to visit around any given US city. It would unleash the explorer in you. 
+This is a static website that provides weather condition, closest airports and interesting places to visit around any given US city. It would unleash the explorer in you. 
 
 ## Built With
 * HTML 5
@@ -25,7 +25,7 @@ https://hameed1239.github.io/group-project-1/
 * Deploy to a website
 
 ## Contribution 
-[Hameed Kazeem] (https://github.com/hameed1239)
-[Sadegh Torabi] (https://github.com/Torabis)
-[Chad Gingery] (https://github.com/cmike212348)
+* [Hameed Kazeem] (https://github.com/hameed1239)
+* [Sadegh Torabi] (https://github.com/Torabis)
+* [Chad Gingery] (https://github.com/cmike212348)
 
