@@ -7,10 +7,28 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="./assets/style.css">
     <link rel="stylesheet" href="assets/css/styles.css">
   </head>
   <body>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="alert" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <!-- <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div> -->
+          <div class="modal-body">
+            <p id="my-modal-body"></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <header>
         <!-- navbar -->
       <nav class="navbar navbar-dark p-3 mb-2 bg-dark text-white">
@@ -28,7 +46,7 @@
         </form>
       </nav>
     </header>
-   
+  
     <!-- news/ weather/ airport -->
     <section class="container w-90" id="main-container">
     <!-- news-carousel-slider -->
@@ -54,24 +72,23 @@
           <div class="col-sm infocard-left">
             <div class="jumbotron bg-secondary">
                 <h1 class="display-3" >Today's Weather</h1>
-            <h2 id="currentCity" ></h2>
             <hr class="m-4" />
             <img id="weather-icon" class="img-thumbnail" style="background-color: #C3C3C3;"/>
-            <p class="lead" id="temp">xxxxxx</p>
-            <p class="lead" id="humidity">xxxxxx</p>
-            <p class="lead" id="windspeed">xxxxxx</p>
-            <p class="lead" id="uv">xxxxxx</p>
+            <p class="lead" id="temp"></p>
+            <p class="lead" id="humidity"></p>
+            <p class="lead" id="windspeed"></p>
+            <p class="lead" id="uv"></p>
               </div>
           </div>
           <!-- airport-jumbotron -->
           <div class="col-sm infocard-right">
             <div class="jumbotron bg-secondary">
                 <h1 class="display-3" >Closest Airport</h1>
+            <hr class="m-4" />
+            <img id="airport-icon" class="img-thumbnail" style="background-color: #C3C3C3;" />
             <h2 id="airport-code" ></h2>
             <h3 class="lead" id="airport"></h3>
-            <!-- <p class="lead" id="airport-2">xxxxxx</p>
-            <p class="lead" id="airport-3">xxxxxx</p>
-            <p class="lead" id="airport-4">xxxxxx</p> -->
+            
               </div>
           </div>
         </div>
@@ -79,12 +96,10 @@
     </section>
 <footer class="page-footer font-small bg-dark text-white pt-4">
     <div class="footer-container">
-    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <div class="footer-copyright text-center py-3">© 2020 Copyright: UCB
       <a href="..."></a>
     </div>
     </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://use.fontawesome.com/84f732b584.js"></script>
     <script src="./assets/scripts/script.js"></script>
   </body>
