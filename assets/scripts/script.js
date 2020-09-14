@@ -1,4 +1,7 @@
 var destination = "CLEVELAND";
+var fullDestination = "CLEVELAND, OH"
+var lat = "41.4995";
+var lon = "-81.69541"
 var destinationCoord = `41.4995,-81.69541`
 var image;
 //var i;
@@ -20,16 +23,16 @@ $(".btn").on("click", function () {
     event.preventDefault();
     destination = $(".form-control").val();
     console.log(destination);
-    destination = destination.toUpperCase();
     destination = destination.trim();
-    changeCityName(destination);
+    destination = destination.toUpperCase();
+    if (destination === "NEWYORK" || destination === "NEW YORK") {
+        destination = "NEWYORK CITY";
+    }
     getGeocode(destination);
-    fetchAirports();
-
 });
 
 function changeCityName(destination) {
-    $("#city").html(`${destination}'s LOCAL GUIDE`)
+    $("#city").html(`${destination} LOCAL GUIDE`);
 }
 //fetch geocode and poi
 function getGeocode(destination) {
@@ -51,8 +54,12 @@ function getGeocode(destination) {
                 else {
                     console.log(response);
                     //const places = getPlaces(response);
+                    destination = response.name;
                     getPlacesXID(response);
-                    fetchAirports(`${response.lat},${response.lon}`);
+                    lat = response.lat;
+                    lon = response.lon;
+                    destinationCoord = `${response.lat},${response.lon}`
+                    
                 }
             })
     }
@@ -121,14 +128,17 @@ function getPlaceInfo(xIDs) {
 
                     $(".carousel-item").addClass("active");
                 }
+
             });
+            fetchAirports();
+            weatherFetch();
         });
 
    
 }
 function weatherFetch() {
 
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${destination}&units=imperial&appid=${weatherAPIKEY}`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=${weatherAPIKEY}`)
         .then(function (response) {
             return response.json();
         })
@@ -156,17 +166,17 @@ function displayWeather(response) {
     // currentDay.innerHTML = `${cityValue} ${formatedDate}`;
     var iconSrc = `https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png`;
     currentIcon.setAttribute("src", iconSrc);
-    currentTemp.innerHTML = `${response.main.temp} &#8457`;
-    currentHumidity.innerHTML = `${response.main.humidity}%`;
-    currentWindSpeed.innerHTML = `${response.wind.speed} MPH`
+    currentTemp.innerHTML = `Temperature: ${response.main.temp} &#8457`;
+    currentHumidity.innerHTML = `Humidity: ${response.main.humidity}%`;
+    currentWindSpeed.innerHTML = `Windspeed: ${response.wind.speed} MPH`
 
 }
 function addUVIndex(response) {
-    currentUVIndex.innerHTML = `${response.value}`;
+    currentUVIndex.innerHTML = `UV Index: ${response.value}`;
 }
 
-function fetchAirports(coord) {
-    fetch(`https://api.aerisapi.com/places/airports/closest/?client_id=${aerisAPIKEY}&client_secret=${aerisSecretKey}&p=${coord}&limit=1&radius=20miles&filter=largeairport&`)
+function fetchAirports() {
+    fetch(`https://api.aerisapi.com/places/airports/closest/?client_id=${aerisAPIKEY}&client_secret=${aerisSecretKey}&p=${lat},${lon}&limit=1&radius=25miles&filter=largeairport&`)
         .then(function (response) {
             return response.json();
         })
@@ -174,14 +184,12 @@ function fetchAirports(coord) {
             console.log(response);
             $("#airport-code").html((response.response[0].profile.iata).toUpperCase());
             $("#airport").html(response.response[0].place.name);
-
+            fullDestination = `${response.response[0].place.city}, ${response.response[0].place.state}`;
+            changeCityName(fullDestination);
     })
 }
 
 function onLoad() {
-    changeCityName(destination);
     getGeocode(destination);
-    weatherFetch();
 }
-
 onLoad();

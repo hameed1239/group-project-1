@@ -4,16 +4,32 @@
 /* Small devices (landscape phones, 576px and up) */
 
 
-#city{
-        font-size: 100%;
-        text-align: center;
+.carousel-caption{
+        position: relative;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: auto;
     }
 
+.carousel-inner{
+    max-height: 700px !important;
+}
+.carousel-item img{
+        max-height: 370px;
+        max-width: 400px;
+        min-height: 350px;
+        
+    }
+.carousel{
+    padding-bottom: 5px;
+}
+
 @media (min-width: 320px) {
-    .carousel-item p{
+    .carousel-caption p{
     font-size: 8px;
     }
-    .carousel-item h1{
+    .carousel-caption h1{
     font-size: 14px;
     }
     .d-none {
@@ -25,20 +41,20 @@
     }
 }
 @media (min-width: 480px) {
-    .carousel-item p{
+    .carousel-caption p{
     font-size: 9px;
     }
     .d-none {
     display: block!important;
     }
     .carousel-item img{
-        max-height: 350px;
+        max-height: 320px;
         max-width: 300px;
         min-height: 300px;
     }
 }
 @media (min-width: 576px) {
-    .carousel-item p{
+    .carousel-caption p{
     font-size: 10px;
     }
     .d-none {
@@ -48,28 +64,39 @@
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 600px) {
-    .carousel-item p{
+    .carousel-caption p{
     font-size: 11px;
+    }
+    .carousel{
+        height: 700px;
+    }
+    .carousel-inner{
+        height: 700px;
     }
 }
 
 @media (min-width: 801px) {
-    .carousel-item p{
+    .carousel-caption p{
     font-size: 12px;
     }
+    /* .carousel-caption{
+        display: flex;
+        /* width: inherit;
+        align-content: center; */
+    /* } */ 
 }
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 1025px) {
-    .carousel-item p{
-    font-size: 14px;
+    .carousel-caption p{
+    font-size: 18px;
     }
 }
 
 
 /* // Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1281px) { 
-    .carousel-item p{
-    font-size: 16px;
+    .carousel-caption p{
+    font-size: 18px;
 }
     .infocard-left {
         padding-left: 0px;
