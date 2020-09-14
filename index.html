@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Local Info</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="assets/css/styles.css">
+  </head>
+  <body>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="alert" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <p id="my-modal-body"></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <header>
+        <!-- navbar -->
+      <nav class="navbar navbar-dark p-3 mb-2 bg-dark text-white">
+        <a class="navbar-brand display-1 ml-5" id="city">LOCAL INFO</a>
+        <form class="form-inline mr-5">
+          <input
+            class="form-control mr-sm-2"
+            type="search"
+            placeholder="Enter a city"
+            aria-label="Search"
+          />
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            Search
+          </button>
+        </form>
+      </nav>
+    </header>
+  
+    <!-- POIs/ weather/ airport -->
+    <section class="container w-90" id="main-container">
+    <!-- POI-carousel-slider -->
+    <!-- <div class="d-flex justify-content-center w-100" id="news-slider"> -->
+        <div id="POI-caption" class="carousel slide w-80 d-flex justify-content-center " data-ride="carousel" data-interval = "15000" data-wrap = "true" data-pause = "false" >
+          <div class="carousel-inner">
+          </div>
+          <a class="carousel-control-prev" href="#POI-caption" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#POI-caption" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+    <div class="container justify-content-between p-3 ">
+        <div class="row justify-content-between">
+        <!-- weather-jumbotron -->
+          <div class="col-sm infocard-left">
+            <div class="jumbotron bg-secondary">
+                <h1 class="display-3" >Today's Weather</h1>
+            <hr class="m-4" />
+            <img id="weather-icon" class="img-thumbnail" style="background-color: #C3C3C3;"/>
+            <p class="lead" id="temp"></p>
+            <p class="lead" id="humidity"></p>
+            <p class="lead" id="windspeed"></p>
+            <p class="lead" id="uv"></p>
+              </div>
+          </div>
+          <!-- airport-jumbotron -->
+          <div class="col-sm infocard-right">
+            <div class="jumbotron bg-secondary">
+                <h1 class="display-3" >Closest Airport</h1>
+            <hr class="m-4" />
+            <img id="airport-icon" class="img-thumbnail" style="background-color: #C3C3C3;" />
+            <h2 id="airport-code" ></h2>
+            <h3 class="lead" id="airport"></h3>
+            
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+<footer class="page-footer font-small bg-dark text-white pt-4">
+    <div class="footer-container">
+    <div class="footer-copyright text-center py-3">© 2020 Copyright: UCB
+      <a href="..."></a>
+    </div>
+    </footer>
+  <script src="https://use.fontawesome.com/84f732b584.js"></script>
+    <script src="./assets/scripts/script.js"></script>
+  </body>
+</html>
