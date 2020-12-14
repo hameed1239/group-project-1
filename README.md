@@ -13,7 +13,7 @@ This is a static website that provides weather condition, closest airports and i
 * [Aeris weather API] (https://www.aerisweather.com/support/docs/api/reference/endpoints/places-airports/)
 
 ## Website
-https://hameed1239.github.io/group-project-1/
+https://hameed1239.github.io/local-guide/
 ![Website Screenshot](./assets/images/Capture.PNG)
 
 ## Prerequisites
